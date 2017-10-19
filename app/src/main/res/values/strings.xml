@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">BuildItBigger</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-
+    <string name="message">"press the button to display a funny joke"</string>
 </resources>

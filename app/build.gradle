@@ -17,6 +17,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors{
+        free{
+            applicationId "com.majd.builditbigger.free"
+
+        }
+        paid{
+            applicationId "com.majd.builditbigger.paid"
+        }
+    }
+
+
+
+
+
 }
 
 dependencies {
@@ -28,10 +42,16 @@ dependencies {
     compile project(':jokeactivity')
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.android.gms:play-services-ads:9.8.0'
+    freeCompile'com.google.android.gms:play-services-ads:9.8.0'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     testCompile 'junit:junit:4.12'
     compile project(path: ':backend', configuration: 'android-endpoints')
     compile 'com.google.api-client:google-api-client:1.23.0'
     compile 'com.google.http-client:google-http-client-android:1.23.0'
+
+    androidTestCompile('com.android.support.test:runner:0.4', {
+        //Solve conflict with dependency "versions for app (24.1.1) and test app (23.0.1) differ"
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
 }
